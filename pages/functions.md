@@ -7,7 +7,7 @@ Functions are chunks of code with minimal functionality that can be chained toge
 
 If you want to make use of the filesystem to create or read from files you have to place them under the `/tmp/` directory. 
 
-If you want to use file/files as input or output of your function you use the `Artefact` type or any of its subtypes provided by the `@edurata/types` package in the interface. The function wrapper will automatically handle uploading/downloading the file from cloud storage. 
+If you want to use file/files as input or output of your function you use the `Artefact` type or any of its subtypes provided by the [@edurata/types](https://www.npmjs.com/package/@edurata/types) package in the interface. The function wrapper will automatically handle uploading/downloading the file from cloud storage. 
 
 In order to specify an artefact you either pass in an object of type File or a shorthand string that includes all information about the file.
 
@@ -55,7 +55,7 @@ You have freedom of choice for the following:
 
 - **Import custom types**: You can import custom types of public repositories and use them for your interface
 - **No restriction on name of types**: As this is typescript the name of the types is not relevant
-- **Input types can be ambiguous**: If you want to be flexible about what data can be passed in you can use (Unions or Intersection types)[https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html] 
+- **Input types can be ambiguous**: If you want to be flexible about what data can be passed in you can use [Unions or Intersection types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html) 
 - **The handler function can be overloaded**: If you want to provide multiple interfaces where the output changes based on the input you can define them through overloading the type that you pass to the handler function.
 
 ```typescript

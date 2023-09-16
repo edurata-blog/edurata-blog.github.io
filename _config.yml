@@ -8,3 +8,11 @@ relative_links:
   collections: true
 
 color_scheme: dark
+
+callouts:
+  info:
+    title: Info
+    color: blue
+  warning:
+    title: Warning
+    color: orange

@@ -1,9 +1,29 @@
-[Workflows](pages/workflows.md)
+# Introduction
 
-[Functions](pages/functions.md)
+Edurata is BI-Platform enabling users to run `node.js`, `python` and `bash` code in a modular way in the cloud without having to learn Devops.
 
-[General](pages/general.md)
+### You don't need to care about:
 
+- Cloud Providers (AWS, Google Cloud, Azure, etc..)
+- Orchestration (Docker & Kubernetes)
+- Scaling
+- Availability
+- Interfaces & Apis
+  |
 
-Create Function version -> Upload Code through API or UI
-Create Workflow Version through 
+### Use cases:
+
+- CI/CD pipeline
+- BI Ingest pipelines
+- Cron Jobs
+- API Backend
+
+# Resources
+
+There is two main resources in this app, [Workflows](https://docs.edurata.com/pages/workflows.html) and [Functions](https://docs.edurata.com/pages/workflows.html).
+
+While **Functions define how** functionality is executed and what information they consume and expose, **Workflows define in which order** Functions are executed and how information flows between them.
+
+Learn more about [Functions]({% link functions/index.md %}) and [Workflows]({% link workflows/index.md %})
+
+{:toc}

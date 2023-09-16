@@ -49,7 +49,3 @@ export type Handler = {
 ```
 
 _contents of "interface.d.ts"_
-
-## Limitations
-
-We use mostly AWS Lambda functions to execute your functions code. This brings

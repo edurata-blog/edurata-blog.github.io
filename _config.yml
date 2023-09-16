@@ -1,6 +1,8 @@
 remote_theme: pmarsceill/just-the-docs
 include:
-  - index.md
+  - pages
+exclude:
+  - Readme.md
 plugins:
   - jekyll-relative-links
 relative_links:

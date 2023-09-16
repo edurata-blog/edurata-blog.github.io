@@ -24,6 +24,9 @@ There is two main resources in this app, [Workflows](https://docs.edurata.com/pa
 
 While **Functions define how** functionality is executed and what information they consume and expose, **Workflows define in which order** Functions are executed and how information flows between them.
 
-Learn more about [Functions]({{ site.baseurl }}{% link pages/functions/index.md %}) and [Workflows]({{ site.baseurl }}{% link pages/workflows/index.md %})
+Learn more about [Functions]({% link pages/functions/index.md %}) and
+
+<!--
+[Workflows]({{ site.baseurl }}{% link pages/workflows/index.md %}) -->
 
 {:toc}

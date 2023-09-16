@@ -22,7 +22,9 @@ export async handler(inputs: {
 } {
     const fileAsString = fs.readFileSync(inputFile,{ encoding: 'utf8' });
 
-    return
+    return {
+        outputFile: "./path/to/local/file.txt"
+    }
 }
 
 ```

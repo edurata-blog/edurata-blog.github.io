@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Workflow Definition
-parent: Registry
+parent: Definitions
 nav_order: 2
 ---
 

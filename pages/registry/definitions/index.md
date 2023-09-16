@@ -1,8 +1,7 @@
 ---
 layout: default
-title: Function Definition
+title: Definitions
+has_children: true
 parent: Registry
 nav_order: 1
 ---
-
-# Function config

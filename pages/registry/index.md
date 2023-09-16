@@ -2,6 +2,7 @@
 layout: default
 title: Registry
 has_children: true
+nav_order: 5
 ---
 
 # Registry

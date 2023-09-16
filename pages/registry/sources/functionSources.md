@@ -2,6 +2,7 @@
 layout: default
 title: Function Sources
 parent: Sources
+grand_parent: Registry
 nav_order: 1
 ---
 

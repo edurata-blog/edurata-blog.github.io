@@ -1,6 +1,6 @@
 remote_theme: pmarsceill/just-the-docs
 include:
-  - pages
+  - index.md
 exclude:
   - Readme.md
 plugins:

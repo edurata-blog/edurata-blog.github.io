@@ -15,4 +15,4 @@ callouts:
     color: blue
   warning:
     title: Warning
-    color: orange
+    color: red

@@ -1,49 +1,17 @@
+---
+layout: default
+title: Functions
+has_children: true
+---
+
 # Functions
 
 Functions are chunks of code with minimal functionality that can be chained together in order to build a workflow. We enforce a minmal amount of conventions to make the whole ecosystem both scaleable and easy to use for everyone.
 
-## Deployment of a new Function
-
-
-## Writing of a function
-
-## Handling of Files (Artefacts)
-
-If you want to make use of the filesystem to create or read from files you have to place them under the `/tmp/` directory. 
-
-If you want to use file/files as input or output of your function you use the `Artefact` type or any of its subtypes provided by the [@edurata/types](https://www.npmjs.com/package/@edurata/types) package in the interface. The function wrapper will automatically handle uploading/downloading the file from cloud storage. 
-
-In order to specify an artefact you either pass in an object of type File or a shorthand string that includes all information about the file.
-
-```typescript
-type Path = string // e.g. /path/to/file/
-type FileName = string // e.g. foo
-type FileType = string // e.g. txt
-
-export type File = {
-    path: Path 
-    fileName: FileName
-    fileType: FileType
-}
-
-type FileStr = `file:${Path}/${FileName}.${FileType}`
-
-export type Artefact = File | FileStr
-
-```
-
-
-## Folder structure
-
-Note that in the following the `root` folder can also be a subfolder in a repository and doesn't have to 
-You have freedom about how to structure your files except the following:
-- **The root contains an index.ts**: This is the entrypoint of the function and contains the handler function.
-- **The root contains a package.json**: In order for us to know which dependencies to install you need to provide a `package.json` in the root directory.
-- **The root contains an interface.d.ts**: Since we need information about the signature/interface of your function you need to provide this file that contains only typescript types.
-
 ## The handler function
 
 If you have worked with AWS lambda functions before you will know that a handler function is expected in the root directory as an entry point into your function. The convention here is:
+
 - **The handler functions needs to be called handler**.
 - **The handler functions needs to be exported**: If you don' export the function it is not possible for our wrapper to pick it up.
 
@@ -59,31 +27,29 @@ You have freedom of choice for the following:
 
 - **Import custom types**: You can import custom types of public repositories and use them for your interface
 - **No restriction on name of types**: As this is typescript the name of the types is not relevant
-- **Input types can be ambiguous**: If you want to be flexible about what data can be passed in you can use [Unions or Intersection types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html) 
+- **Input types can be ambiguous**: If you want to be flexible about what data can be passed in you can use [Unions or Intersection types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html)
 - **The handler function can be overloaded**: If you want to provide multiple interfaces where the output changes based on the input you can define them through overloading the type that you pass to the handler function.
 
 ```typescript
 // Import any other types from an open source library to make them available
-import type {TypescriptFile, OasFile, UrlString} from "@edurata/types"
-
+import type { TypescriptFile, OasFile, UrlString } from "@edurata/types";
 
 type Inputs = {
-    oasInput: OasFile | UrlString | string
-}
+  oasInput: OasFile | UrlString | string;
+};
 
 type Outputs = {
-    file: TypescriptFile
-}
+  file: TypescriptFile;
+};
 
 export type Handler = {
-    // See here that we pass in only one object "inputs", other arguments are ignored
-    (inputs: Inputs): Promise<Outputs>
-}
-
+  // See here that we pass in only one object "inputs", other arguments are ignored
+  (inputs: Inputs): Promise<Outputs>;
+};
 ```
-*contents of "interface.d.ts"*
+
+_contents of "interface.d.ts"_
 
 ## Limitations
 
-We use mostly AWS Lambda functions to execute your functions code. This brings 
-
+We use mostly AWS Lambda functions to execute your functions code. This brings

@@ -6,6 +6,7 @@ plugins:
 relative_links:
   enabled: true
   collections: true
+logo: "/assets/main.png"
 
 color_scheme: dark
 

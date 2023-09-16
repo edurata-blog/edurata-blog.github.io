@@ -18,7 +18,7 @@ Edurata is BI-Platform enabling users to run `node.js`, `python` and `bash` code
 - Cron Jobs
 - API Backend
 
-# Resources
+### Resources
 
 There is two main resources in this app, [Workflows](https://docs.edurata.com/pages/workflows.html) and [Functions](https://docs.edurata.com/pages/workflows.html).
 

@@ -1,14 +1,10 @@
 ---
 layout: default
 title: Variables
-parent: Validation
+parent: Globals
 nav_order: 2
 ---
 
-# Interfaces
+# Variables
 
-The interface in the workflow or function config is the necessity for validation to work. Inside interfaces you define which values and types are expected in which schema.
-
-## Generating an interface from types
-
-This is a planned feature but available yet
+Variables is a simple key value store that includes any environment variable or other runtime configuration you need to supply to workflows

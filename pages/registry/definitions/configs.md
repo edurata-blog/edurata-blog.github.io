@@ -118,6 +118,12 @@ title: Schema
 parent: Definitions
 grand_parent: Registry
 ---
+---
+layout: default
+title: Schema
+parent: Definitions
+grand_parent: Registry
+---
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 

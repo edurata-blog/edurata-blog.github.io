@@ -1,7 +1,7 @@
 ---
 layout: default
 title: artefacts
-parent: Deployments
+parent: Workflows
 nav_order: 4
 ---
 

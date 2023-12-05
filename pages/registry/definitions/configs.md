@@ -844,12 +844,23 @@ assuming the step "inputs" has an output "name" that is a complex object with a 
 
 #### Properties
 
+- [dependencies](#dependencies)
 - [outputId](#outputid)
 - [outputPath](#outputpath)
 - [stepId](#stepid)
+- [useAs](#useas)
 - [value](#value)
 
 ### Properties
+
+#### dependencies
+
+• `Optional` **dependencies**: [`StepDependency`](#interfacesstepdependencymd)[]
+
+If the dependency is a string with interpolated values, these are the interpolated values, if any.
+These are mostly autopopulated and usually don't need to be set manually.
+
+___
 
 #### outputId
 
@@ -886,16 +897,43 @@ attribute "foreach" in the parent step is defined.
 
 ___
 
+#### useAs
+
+• `Optional` **useAs**: ``"ENV"`` \| ``"CMD_VALUE"`` \| ``"CMD_KEY_VALUE"`` \| ``"PARAMETER"``
+
+If the current step source of this dependency is a container image, this specifies whether to use the dependency as an environment variable or as a command line argument.
+
+**`Example`**
+
+```ts
+"ENV" -> the key of the dependency will be used as the name of the environment variable and the value as the value of the environment variable
+```
+
+**`Example`**
+
+```ts
+"CMD_VALUE" -> the value of the dependency will be used as the value of the command line argument like so "VALUE"
+```
+
+___
+
 #### value
 
 • `Optional` **value**: `string`
 
 If you want to pass in a value directly instead of a step dependency, you can use this attribute.
+You can also use interpolation here.
 
 **`Example`**
 
 ```ts
-"data.name"
+"examplestring"
+```
+
+**`Example`**
+
+```ts
+"${inputs.name} is here!"
 ```
 
 
@@ -938,6 +976,7 @@ assuming the step "inputs" has an output "name" that is a complex object with a 
 
 #### Properties
 
+- [dependencies](#dependencies)
 - [outputId](#outputid)
 - [outputPath](#outputpath)
 - [stepId](#stepid)
@@ -945,6 +984,19 @@ assuming the step "inputs" has an output "name" that is a complex object with a 
 - [value](#value)
 
 ### Properties
+
+#### dependencies
+
+• `Optional` **dependencies**: [`StepDependency`](#interfacesstepdependencymd)[]
+
+If the dependency is a string with interpolated values, these are the interpolated values, if any.
+These are mostly autopopulated and usually don't need to be set manually.
+
+##### Inherited from
+
+[StepDependency](#interfacesstepdependencymd).[dependencies](#dependencies)
+
+___
 
 #### outputId
 
@@ -995,7 +1047,7 @@ ___
 
 #### useAs
 
-• `Optional` **useAs**: ``"ENV"`` \| ``"CMD_VALUE"`` \| ``"CMD_KEY_VALUE"``
+• `Optional` **useAs**: ``"ENV"`` \| ``"CMD_VALUE"`` \| ``"CMD_KEY_VALUE"`` \| ``"PARAMETER"``
 
 If the current step source of this dependency is a container image, this specifies whether to use the dependency as an environment variable or as a command line argument.
 
@@ -1011,6 +1063,10 @@ If the current step source of this dependency is a container image, this specifi
 "CMD_VALUE" -> the value of the dependency will be used as the value of the command line argument like so "VALUE"
 ```
 
+##### Inherited from
+
+[StepDependency](#interfacesstepdependencymd).[useAs](#useas)
+
 ___
 
 #### value
@@ -1018,11 +1074,18 @@ ___
 • `Optional` **value**: `string`
 
 If you want to pass in a value directly instead of a step dependency, you can use this attribute.
+You can also use interpolation here.
 
 **`Example`**
 
 ```ts
-"data.name"
+"examplestring"
+```
+
+**`Example`**
+
+```ts
+"${inputs.name} is here!"
 ```
 
 ##### Inherited from

@@ -9,6 +9,8 @@ nav_order: 1
 
 ## Scheduled executions
 
-If you want your
+If the executions should run in a regular interval, the `schedule` attribute can be set inside the [workflow definition](../registry/definitions/workflowDefinition.md) to a fitting cron value.
 
 ## Manual executions
+
+You can also execute a workflow through a button in

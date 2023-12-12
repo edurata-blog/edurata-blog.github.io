@@ -4,6 +4,7 @@ title: Schema
 parent: Definitions
 grand_parent: Registry
 ---
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -61,7 +62,6 @@ grand_parent: Registry
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
 <a name="readmemd"></a>
 
 @edurata/types
@@ -101,11 +101,10 @@ Schema for a string representing an educational function step dependency.
 **`Example`**
 
 ```ts
-"stepId.outputId.outputPath"
+"stepId.outputId.outputPath";
 ```
 
 # Interfaces
-
 
 <a name="interfacescomputeresourcesmd"></a>
 
@@ -129,26 +128,26 @@ Schema for a string representing an educational function step dependency.
 The number of vCPUs to allocate for the function. The available CPU values depend on the amount of memory allocated to the function and vice versa.
 0.25 vCPU - Available memory values: 0.5 GB, 1 GB, 2 GB
 
- 0.5 vCPU - Available memory values: 1 GB, 2 GB, 3 GB, 4 GB
+0.5 vCPU - Available memory values: 1 GB, 2 GB, 3 GB, 4 GB
 
- 1 vCPU - Available memory values: 2 GB, 3 GB, 4 GB, 5 GB, 6 GB, 7 GB, 8 GB
+1 vCPU - Available memory values: 2 GB, 3 GB, 4 GB, 5 GB, 6 GB, 7 GB, 8 GB
 
- 2 vCPU - Available memory values: 4 GB, 16 GB in increments of 1 GB
+2 vCPU - Available memory values: 4 GB, 16 GB in increments of 1 GB
 
- 4 vCPU - Available memory values: 8 GB, 30 GB in increments of 1 GB
+4 vCPU - Available memory values: 8 GB, 30 GB in increments of 1 GB
 
- 8 vCPU - Available memory values: 16 GB, 60 GB in 4 GB increments
- This option requires Linux platform 1.4.0 or later.
- 16 vCPU - Available memory values: 32 GB, 120 GB in 8 GB increments
- This option requires Linux platform 1.4.0 or later.
+8 vCPU - Available memory values: 16 GB, 60 GB in 4 GB increments
+This option requires Linux platform 1.4.0 or later.
+16 vCPU - Available memory values: 32 GB, 120 GB in 8 GB increments
+This option requires Linux platform 1.4.0 or later.
 
 **`Example`**
 
 ```ts
-"2"
+"2";
 ```
 
-___
+---
 
 #### memory
 
@@ -159,9 +158,8 @@ The memory allocated. The available memory values depend on the amount of vCPUs 
 **`Example`**
 
 ```ts
-"16"
+"16";
 ```
-
 
 <a name="interfacesconditionmd"></a>
 
@@ -183,17 +181,17 @@ Conditions are used to determine if a step should be executed or not.
 
 #### comparator
 
-• **comparator**: ``"=="`` \| ``"!="`` \| ``">="`` \| ``">"`` \| ``"<"`` \| ``"<="``
+• **comparator**: `"=="` \| `"!="` \| `">="` \| `">"` \| `"<"` \| `"<="`
 
 The comparator to use. Can be any of the boolean types.
 
 **`Example`**
 
 ```ts
-"=="
+"==";
 ```
 
-___
+---
 
 #### value
 
@@ -201,14 +199,13 @@ ___
 
 The right hand side of the comparison. Can be a step dependency or a primitive value.
 
-___
+---
 
 #### variable
 
 • **variable**: `string` \| `number` \| `boolean` \| [`StepDependency`](#interfacesstepdependencymd)
 
 The left hand side of the comparison. Can be a step dependency or a primitive value.
-
 
 <a name="interfacesconfigmd"></a>
 
@@ -239,11 +236,11 @@ The left hand side of the comparison. Can be a step dependency or a primitive va
 
 #### apiRevision
 
-• **apiRevision**: ``"edurata.io/v1"``
+• **apiRevision**: `"edurata.io/v1"`
 
 Refers to the version of this schema and should be updated whenever the schema changes
 
-___
+---
 
 #### description
 
@@ -251,7 +248,7 @@ ___
 
 An additional description of the workflow or function
 
-___
+---
 
 #### interface
 
@@ -259,7 +256,7 @@ ___
 
 The schema of inputs and outputs of this workflow or function
 
-___
+---
 
 #### name
 
@@ -267,7 +264,7 @@ ___
 
 An identifier that is unique in the registry. It is used as reference in deployments or workflows.
 
-___
+---
 
 #### resources
 
@@ -275,14 +272,13 @@ ___
 
 The compute resources to assign. The resources specified of function level will be overriden on workflow level.
 
-___
+---
 
 #### title
 
 • `Optional` **title**: `string`
 
 A short title that describes the workflow or function. This is NOT the id that will be used in the registry!
-
 
 <a name="interfacesfunctionconfigmd"></a>
 
@@ -317,7 +313,7 @@ Represents the configuration schema for a function.
 
 #### apiRevision
 
-• **apiRevision**: ``"edurata.io/v1"``
+• **apiRevision**: `"edurata.io/v1"`
 
 Refers to the version of this schema and should be updated whenever the schema changes
 
@@ -325,7 +321,7 @@ Refers to the version of this schema and should be updated whenever the schema c
 
 [Config](#interfacesconfigmd).[apiRevision](#apirevision)
 
-___
+---
 
 #### description
 
@@ -337,7 +333,7 @@ An additional description of the workflow or function
 
 [Config](#interfacesconfigmd).[description](#description)
 
-___
+---
 
 #### entrypoint
 
@@ -345,7 +341,7 @@ ___
 
 Points to the entrypoint of the function. Defaults to index.js, index.py, index.sh, etc.
 
-___
+---
 
 #### exclude
 
@@ -353,7 +349,7 @@ ___
 
 Specifies which files to exclude from the function. Can be a glob pattern. Defaults to none.
 
-___
+---
 
 #### include
 
@@ -361,7 +357,7 @@ ___
 
 Specifies which files to include in the function. Can be a glob pattern. Defaults to all files in the same directory as the entrypoint.
 
-___
+---
 
 #### interface
 
@@ -373,7 +369,7 @@ The schema of inputs and outputs of this workflow or function
 
 [Config](#interfacesconfigmd).[interface](#interface)
 
-___
+---
 
 #### name
 
@@ -385,7 +381,7 @@ An identifier that is unique in the registry. It is used as reference in deploym
 
 [Config](#interfacesconfigmd).[name](#name)
 
-___
+---
 
 #### resources
 
@@ -397,15 +393,15 @@ The compute resources to assign. The resources specified of function level will 
 
 [Config](#interfacesconfigmd).[resources](#resources)
 
-___
+---
 
 #### runtime
 
-• `Optional` **runtime**: ``"nodejs16"`` \| ``"nodejs18"`` \| ``"nodejs20"`` \| ``"python3_7"`` \| ``"python3_8"`` \| ``"bash"``
+• `Optional` **runtime**: `"nodejs16"` \| `"nodejs18"` \| `"nodejs20"` \| `"python3_7"` \| `"python3_8"` \| `"bash"`
 
 Specifies the programming language the code is written in.
 
-___
+---
 
 #### title
 
@@ -416,7 +412,6 @@ A short title that describes the workflow or function. This is NOT the id that w
 ##### Inherited from
 
 [Config](#interfacesconfigmd).[title](#title)
-
 
 <a name="interfacesinterfacemd"></a>
 
@@ -457,12 +452,12 @@ Schema for an interface of a workflow or function.
 
 ##### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `properties?` | \{ `[key: string]`: [`InterfaceProperty`](#interfacesinterfacepropertymd);  } |
-| `required?` | `string`[] |
+| Name          | Type                                                                         |
+| :------------ | :--------------------------------------------------------------------------- |
+| `properties?` | \{ `[key: string]`: [`InterfaceProperty`](#interfacesinterfacepropertymd); } |
+| `required?`   | `string`[]                                                                   |
 
-___
+---
 
 #### outputs
 
@@ -470,11 +465,10 @@ ___
 
 ##### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `properties?` | \{ `[key: string]`: [`InterfaceProperty`](#interfacesinterfacepropertymd);  } |
-| `required?` | `string`[] |
-
+| Name          | Type                                                                         |
+| :------------ | :--------------------------------------------------------------------------- |
+| `properties?` | \{ `[key: string]`: [`InterfaceProperty`](#interfacesinterfacepropertymd); } |
+| `required?`   | `string`[]                                                                   |
 
 <a name="interfacesinterfacepropertymd"></a>
 
@@ -509,37 +503,37 @@ https://tools.ietf.org/html/draft-handrews-json-schema-validation-01
 
 • `Optional` **const**: [`InterfaceProperty`](#interfacesinterfacepropertymd)
 
-___
+---
 
 #### default
 
 • `Optional` **default**: [`InterfaceProperty`](#interfacesinterfacepropertymd)
 
-___
+---
 
 #### description
 
 • `Optional` **description**: `string`
 
-___
+---
 
 #### enum
 
 • `Optional` **enum**: (`string` \| `number` \| `boolean`)[]
 
-___
+---
 
 #### examples
 
 • `Optional` **examples**: [`InterfaceProperty`](#interfacesinterfacepropertymd)[]
 
-___
+---
 
 #### items
 
 • `Optional` **items**: [`InterfaceProperty`](#interfacesinterfacepropertymd)
 
-___
+---
 
 #### properties
 
@@ -549,24 +543,23 @@ ___
 
 ▪ [key: `string`]: [`InterfaceProperty`](#interfacesinterfacepropertymd)
 
-___
+---
 
 #### required
 
 • `Optional` **required**: `string`[]
 
-___
+---
 
 #### title
 
 • `Optional` **title**: `string`
 
-___
+---
 
 #### type
 
 • **type**: [`Interface`](#interfacesinterfacemd)
-
 
 <a name="interfacessourceimagerepomd"></a>
 
@@ -594,22 +587,22 @@ The url of the image repository. If dockerhub is used, url is optional.
 **`Example`**
 
 ```ts
-"docker.io/edurata"
+"docker.io/edurata";
 ```
 
 **`Example`**
 
 ```ts
-"ghcr.io/edurata"
+"ghcr.io/edurata";
 ```
 
 **`Example`**
 
 ```ts
-"quay.io/edurata"
+"quay.io/edurata";
 ```
 
-___
+---
 
 #### tag
 
@@ -620,21 +613,20 @@ The tag of the image.
 **`Example`**
 
 ```ts
-"latest"
+"latest";
 ```
 
 **`Example`**
 
 ```ts
-"12"
+"12";
 ```
 
 **`Example`**
 
 ```ts
-"1.0.0"
+"1.0.0";
 ```
-
 
 <a name="interfacessourceregistrymd"></a>
 
@@ -662,10 +654,10 @@ The name of the function in the registry.
 **`Example`**
 
 ```ts
-"my-function"
+"my-function";
 ```
 
-___
+---
 
 #### revision
 
@@ -676,9 +668,8 @@ The revision of the function in the registry.
 **`Example`**
 
 ```ts
-"12"
+"12";
 ```
-
 
 <a name="interfacessourcerepomd"></a>
 
@@ -707,10 +698,10 @@ the path of where to find the function code inside the repository
 **`Example`**
 
 ```ts
-"tests/sleep"
+"tests/sleep";
 ```
 
-___
+---
 
 #### ref
 
@@ -721,10 +712,10 @@ The ref of the git repository to use. Defaults to "main".
 **`Example`**
 
 ```ts
-"main"
+"main";
 ```
 
-___
+---
 
 #### repoUrl
 
@@ -735,9 +726,8 @@ the url of the git repository
 **`Example`**
 
 ```ts
-"https://github.com/Edurata/edurata-functions"
+"https://github.com/Edurata/edurata-functions";
 ```
-
 
 <a name="interfacesstepmd"></a>
 
@@ -771,7 +761,7 @@ FunctionSchema.interface.inputs of the function defined in "source".
 
 ▪ [key: `string`]: [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring)
 
-___
+---
 
 #### description
 
@@ -779,7 +769,7 @@ ___
 
 An additional description next to the key of the step.
 
-___
+---
 
 #### foreach
 
@@ -788,7 +778,7 @@ ___
 If defined and the dependency is of type array, this step will loop over the array. The dependencies
 attribute can then use "each" as StepDependencySchema.stepId, pointing to each iteration.
 
-___
+---
 
 #### if
 
@@ -796,14 +786,13 @@ ___
 
 If defined, this step will only execute if the condition is true.
 
-___
+---
 
 #### source
 
 • `Optional` **source**: `Source`
 
 Specifies the source from which to obtain the code to execute in this step.
-
 
 <a name="interfacesstepdependencymd"></a>
 
@@ -816,6 +805,7 @@ Schema for an educational function step dependency.
 **`Example`**
 
 assuming the step "inputs" has an output "name" with the value "John"
+
 ```typescript
 {
  stepId: "inputs",
@@ -826,6 +816,7 @@ assuming the step "inputs" has an output "name" with the value "John"
 **`Example`**
 
 assuming the step "inputs" has an output "name" that is a complex object with a key "firstName" with the value "John"
+
 ```typescript
 {
  stepId: "inputs",
@@ -860,7 +851,7 @@ assuming the step "inputs" has an output "name" that is a complex object with a 
 If the dependency is a string with interpolated values, these are the interpolated values, if any.
 These are mostly autopopulated and usually don't need to be set manually.
 
-___
+---
 
 #### outputId
 
@@ -869,7 +860,7 @@ ___
 the name of the output of a step (thereby its function). has to be one of the outputs defined in
 FunctionSchema.interface.outputs of the dependent step mentioned with "stepId"
 
-___
+---
 
 #### outputPath
 
@@ -882,10 +873,10 @@ to point to the value. e.g. "data.name" to point to the value of the key "name" 
 **`Example`**
 
 ```ts
-"data.name"
+"data.name";
 ```
 
-___
+---
 
 #### stepId
 
@@ -895,11 +886,11 @@ the step which to depend on. Needs to be one defined in the "steps" attribute of
 definition. Can be "inputs" to refer to the global inputs of the workflow. Can be "each" if the
 attribute "foreach" in the parent step is defined.
 
-___
+---
 
 #### useAs
 
-• `Optional` **useAs**: ``"ENV"`` \| ``"CMD_VALUE"`` \| ``"CMD_KEY_VALUE"`` \| ``"PARAMETER"``
+• `Optional` **useAs**: `"ENV"` \| `"CMD_VALUE"` \| `"CMD_KEY_VALUE"` \| `"PARAMETER"`
 
 If the current step source of this dependency is a container image, this specifies whether to use the dependency as an environment variable or as a command line argument.
 
@@ -915,7 +906,7 @@ If the current step source of this dependency is a container image, this specifi
 "CMD_VALUE" -> the value of the dependency will be used as the value of the command line argument like so "VALUE"
 ```
 
-___
+---
 
 #### value
 
@@ -927,15 +918,14 @@ You can also use interpolation here.
 **`Example`**
 
 ```ts
-"examplestring"
+"examplestring";
 ```
 
 **`Example`**
 
 ```ts
-"${inputs.name} is here!"
+"${inputs.name} is here!";
 ```
-
 
 <a name="interfacesstepdependencyuseasmd"></a>
 
@@ -948,6 +938,7 @@ Schema for an educational function step dependency.
 **`Example`**
 
 assuming the step "inputs" has an output "name" with the value "John"
+
 ```typescript
 {
  stepId: "inputs",
@@ -958,6 +949,7 @@ assuming the step "inputs" has an output "name" with the value "John"
 **`Example`**
 
 assuming the step "inputs" has an output "name" that is a complex object with a key "firstName" with the value "John"
+
 ```typescript
 {
  stepId: "inputs",
@@ -996,7 +988,7 @@ These are mostly autopopulated and usually don't need to be set manually.
 
 [StepDependency](#interfacesstepdependencymd).[dependencies](#dependencies)
 
-___
+---
 
 #### outputId
 
@@ -1009,7 +1001,7 @@ FunctionSchema.interface.outputs of the dependent step mentioned with "stepId"
 
 [StepDependency](#interfacesstepdependencymd).[outputId](#outputid)
 
-___
+---
 
 #### outputPath
 
@@ -1022,14 +1014,14 @@ to point to the value. e.g. "data.name" to point to the value of the key "name" 
 **`Example`**
 
 ```ts
-"data.name"
+"data.name";
 ```
 
 ##### Inherited from
 
 [StepDependency](#interfacesstepdependencymd).[outputPath](#outputpath)
 
-___
+---
 
 #### stepId
 
@@ -1043,11 +1035,11 @@ attribute "foreach" in the parent step is defined.
 
 [StepDependency](#interfacesstepdependencymd).[stepId](#stepid)
 
-___
+---
 
 #### useAs
 
-• `Optional` **useAs**: ``"ENV"`` \| ``"CMD_VALUE"`` \| ``"CMD_KEY_VALUE"`` \| ``"PARAMETER"``
+• `Optional` **useAs**: `"ENV"` \| `"CMD_VALUE"` \| `"CMD_KEY_VALUE"` \| `"PARAMETER"`
 
 If the current step source of this dependency is a container image, this specifies whether to use the dependency as an environment variable or as a command line argument.
 
@@ -1067,7 +1059,7 @@ If the current step source of this dependency is a container image, this specifi
 
 [StepDependency](#interfacesstepdependencymd).[useAs](#useas)
 
-___
+---
 
 #### value
 
@@ -1079,19 +1071,18 @@ You can also use interpolation here.
 **`Example`**
 
 ```ts
-"examplestring"
+"examplestring";
 ```
 
 **`Example`**
 
 ```ts
-"${inputs.name} is here!"
+"${inputs.name} is here!";
 ```
 
 ##### Inherited from
 
 [StepDependency](#interfacesstepdependencymd).[value](#value)
-
 
 <a name="interfacesworkflowconfigmd"></a>
 
@@ -1124,7 +1115,7 @@ Represents the configuration schema for a workflow.
 
 #### apiRevision
 
-• **apiRevision**: ``"edurata.io/v1"``
+• **apiRevision**: `"edurata.io/v1"`
 
 Refers to the version of this schema and should be updated whenever the schema changes
 
@@ -1132,7 +1123,7 @@ Refers to the version of this schema and should be updated whenever the schema c
 
 [Config](#interfacesconfigmd).[apiRevision](#apirevision)
 
-___
+---
 
 #### description
 
@@ -1144,7 +1135,7 @@ An additional description of the workflow or function
 
 [Config](#interfacesconfigmd).[description](#description)
 
-___
+---
 
 #### interface
 
@@ -1156,7 +1147,7 @@ The schema of inputs and outputs of this workflow or function
 
 [Config](#interfacesconfigmd).[interface](#interface)
 
-___
+---
 
 #### name
 
@@ -1168,7 +1159,7 @@ An identifier that is unique in the registry. It is used as reference in deploym
 
 [Config](#interfacesconfigmd).[name](#name)
 
-___
+---
 
 #### resources
 
@@ -1180,7 +1171,7 @@ The compute resources to assign. The resources specified of function level will 
 
 [Config](#interfacesconfigmd).[resources](#resources)
 
-___
+---
 
 #### schedule
 
@@ -1218,7 +1209,7 @@ A cron schedule that determines when the workflow should be executed.
 "0 0 1 1 0" -> every first sunday of the year at midnight
 ```
 
-___
+---
 
 #### steps
 
@@ -1231,7 +1222,7 @@ The order of execution and dataflow is inferred by "dependencies".
 
 ▪ [key: `string`]: [`Step`](#interfacesstepmd)
 
-___
+---
 
 #### title
 
@@ -1242,6 +1233,5 @@ A short title that describes the workflow or function. This is NOT the id that w
 ##### Inherited from
 
 [Config](#interfacesconfigmd).[title](#title)
-
 
 <a name="schemamd"></a>

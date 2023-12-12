@@ -6,7 +6,7 @@ nav_order: 1
 
 # Introduction
 
-Edurata is BI-Platform enabling users to run `node.js`, `python` and `bash` code in a modular way in the cloud without having to learn Devops.
+Edurata is BI-Platform enabling users to run `node.js`, `python` or docker containers in a modular way in the cloud without having to care about Devops.
 
 ### You don't need to care about:
 
@@ -14,15 +14,13 @@ Edurata is BI-Platform enabling users to run `node.js`, `python` and `bash` code
 - Orchestration (Docker & Kubernetes)
 - Scaling
 - Availability
-- Interfaces & Apis
-  |
+- CI/CD
 
 ### Use cases:
 
 - CI/CD pipeline
-- BI Ingest pipelines
+- BI pipelines
 - Cron Jobs
-- API Backend
 
 ### Resources
 

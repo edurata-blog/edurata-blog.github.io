@@ -7,4 +7,37 @@ nav_order: 1
 
 # Code Structure
 
-- **Input and output type are objects**: Both the input and output of functions are an object each with several keys-value pairs that represent the actual inputs and outputs.
+## The handler function
+
+If you have worked with AWS lambda functions before you will know that a handler function is expected in the root directory as an entry point into your function. The convention here is:
+
+- **The handler functions needs to be called handler**.
+- **The handler functions needs to be exported**.
+
+## Inputs & Outputs of functions
+
+Both inputs and outputs of a function are complex objects with the keys equal to the inputs and outputs defined in the interface.
+
+```python
+def handler(inputs):
+    if 'sender' not in inputs or 'to' not in inputs:
+        raise Exception('required inputs not present')
+    sender = inputs.get("sender")
+    to = inputs.get("to")
+    subject = inputs.get("subject","")
+    body = inputs.get("body", "")
+    success = send_email(sender, to, subject, body)
+
+    return {
+        success: success
+    }
+
+```
+
+## Artefacts
+
+TODO
+
+## Working with typing
+
+nodejs can be typed using typescript and python3 also has an in-built typing system.

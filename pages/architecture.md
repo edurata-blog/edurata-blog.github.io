@@ -27,5 +27,5 @@ Permissions of executions are scoped by an `execution token` that contains metai
 
 The most important quotas:
 
-- concurrent running jobs 200 -> can be extended.
--
+- concurrent running jobs 200 (can be extended)
+- File size of decompressed dependencies folder (e.g. node_modules for nodejs)

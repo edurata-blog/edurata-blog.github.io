@@ -21,3 +21,5 @@ Workflows and function definitions each contain specific information that is dif
 ## Interface
 
 It is also possible to define an optional [interface](./interface.md) which defines the validation of input and output values of workflows and functions
+
+Check the quota for how large the dependency folder can be [here](../../architecture.md)

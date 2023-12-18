@@ -33,11 +33,3 @@ def handler(inputs):
     }
 
 ```
-
-## Artefacts
-
-TODO
-
-## Working with typing
-
-nodejs can be typed using typescript and python3 also has an in-built typing system.

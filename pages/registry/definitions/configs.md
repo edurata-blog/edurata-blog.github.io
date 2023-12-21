@@ -751,13 +751,21 @@ Schema for an educational function step.
 
 #### Properties
 
+- [cache](#cache)
 - [dependencies](#dependencies)
 - [description](#description)
-- [foreach](#foreach)
 - [if](#if)
 - [source](#source)
 
 ### Properties
+
+#### cache
+
+• `Optional` **cache**: `boolean`
+
+If enabled, the task has access to a user-scoped shared filesystem at /tmp.
+
+___
 
 #### dependencies
 
@@ -778,15 +786,6 @@ ___
 • `Optional` **description**: `string`
 
 An additional description next to the key of the step.
-
-___
-
-#### foreach
-
-• `Optional` **foreach**: [`StepDependency`](#interfacesstepdependencymd) \| \`$\{string}.$\{string}.$\{string}\`
-
-If defined and the dependency is of type array, this step will loop over the array. The dependencies
-attribute can then use "each" as StepDependencySchema.stepId, pointing to each iteration.
 
 ___
 
@@ -873,7 +872,7 @@ ___
 
 #### outputPath
 
-• `Optional` **outputPath**: `string`
+• `Optional` **outputPath**: `string`[]
 
 only used when the output is a complex object and the value is inside. is a string with dot notation
 to point to the value. e.g. "data.name" to point to the value of the key "name" inside the object
@@ -882,7 +881,7 @@ to point to the value. e.g. "data.name" to point to the value of the key "name" 
 **`Example`**
 
 ```ts
-"data.name"
+["data", "name"]
 ```
 
 ___
@@ -1013,7 +1012,7 @@ ___
 
 #### outputPath
 
-• `Optional` **outputPath**: `string`
+• `Optional` **outputPath**: `string`[]
 
 only used when the output is a complex object and the value is inside. is a string with dot notation
 to point to the value. e.g. "data.name" to point to the value of the key "name" inside the object
@@ -1022,7 +1021,7 @@ to point to the value. e.g. "data.name" to point to the value of the key "name" 
 **`Example`**
 
 ```ts
-"data.name"
+["data", "name"]
 ```
 
 ##### Inherited from

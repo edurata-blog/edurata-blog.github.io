@@ -17,21 +17,21 @@ grand_parent: Registry
   - [Interface: ComputeResources](#interface-computeresources)
     - [Table of contents](#table-of-contents-1)
     - [Properties](#properties)
-  - [Interface: Condition](#interface-condition)
-    - [Table of contents](#table-of-contents-2)
-    - [Properties](#properties-1)
   - [Interface: Config](#interface-config)
     - [Hierarchy](#hierarchy)
-    - [Table of contents](#table-of-contents-3)
-    - [Properties](#properties-2)
+    - [Table of contents](#table-of-contents-2)
+    - [Properties](#properties-1)
   - [Interface: FunctionConfig](#interface-functionconfig)
     - [Hierarchy](#hierarchy-1)
+    - [Table of contents](#table-of-contents-3)
+    - [Properties](#properties-2)
+  - [Interface: Interface](#interface-interface)
     - [Table of contents](#table-of-contents-4)
     - [Properties](#properties-3)
-  - [Interface: Interface](#interface-interface)
+  - [Interface: InterfaceProperty](#interface-interfaceproperty)
     - [Table of contents](#table-of-contents-5)
     - [Properties](#properties-4)
-  - [Interface: InterfaceProperty](#interface-interfaceproperty)
+  - [Interface: Registry](#interface-registry)
     - [Table of contents](#table-of-contents-6)
     - [Properties](#properties-5)
   - [Interface: SourceImageRepo](#interface-sourceimagerepo)
@@ -73,11 +73,11 @@ grand_parent: Registry
 ### Interfaces
 
 - [ComputeResources](#interfacescomputeresourcesmd)
-- [Condition](#interfacesconditionmd)
 - [Config](#interfacesconfigmd)
 - [FunctionConfig](#interfacesfunctionconfigmd)
 - [Interface](#interfacesinterfacemd)
 - [InterfaceProperty](#interfacesinterfacepropertymd)
+- [Registry](#interfacesregistrymd)
 - [SourceImageRepo](#interfacessourceimagerepomd)
 - [SourceRegistry](#interfacessourceregistrymd)
 - [SourceRepo](#interfacessourcerepomd)
@@ -161,53 +161,6 @@ The memory allocated. The available memory values depend on the amount of vCPUs 
 ```ts
 "16"
 ```
-
-
-<a name="interfacesconditionmd"></a>
-
-[@edurata/types](#readmemd) / Condition
-
-## Interface: Condition
-
-Conditions are used to determine if a step should be executed or not.
-
-### Table of contents
-
-#### Properties
-
-- [comparator](#comparator)
-- [value](#value)
-- [variable](#variable)
-
-### Properties
-
-#### comparator
-
-• **comparator**: ``"=="`` \| ``"!="`` \| ``">="`` \| ``">"`` \| ``"<"`` \| ``"<="``
-
-The comparator to use. Can be any of the boolean types.
-
-**`Example`**
-
-```ts
-"=="
-```
-
-___
-
-#### value
-
-• **value**: `string` \| `number` \| `boolean` \| [`StepDependency`](#interfacesstepdependencymd)
-
-The right hand side of the comparison. Can be a step dependency or a primitive value.
-
-___
-
-#### variable
-
-• **variable**: `string` \| `number` \| `boolean` \| [`StepDependency`](#interfacesstepdependencymd)
-
-The left hand side of the comparison. Can be a step dependency or a primitive value.
 
 
 <a name="interfacesconfigmd"></a>
@@ -309,6 +262,7 @@ Represents the configuration schema for a function.
 - [include](#include)
 - [interface](#interface)
 - [name](#name)
+- [registry](#registry)
 - [resources](#resources)
 - [runtime](#runtime)
 - [title](#title)
@@ -387,6 +341,14 @@ An identifier that is unique in the registry. It is used as reference in deploym
 
 ___
 
+#### registry
+
+• `Optional` **registry**: [`Registry`](#interfacesregistrymd)
+
+If the source shouldn't be built but is already in an external registry, you can point to it here.
+
+___
+
 #### resources
 
 • `Optional` **resources**: [`ComputeResources`](#interfacescomputeresourcesmd)
@@ -401,7 +363,7 @@ ___
 
 #### runtime
 
-• `Optional` **runtime**: ``"nodejs16"`` \| ``"nodejs18"`` \| ``"nodejs20"`` \| ``"python3_7"`` \| ``"python3_8"`` \| ``"bash"``
+• `Optional` **runtime**: ``"nodejs16"`` \| ``"nodejs18"`` \| ``"nodejs20"`` \| ``"python3_7"`` \| ``"python3_8"`` \| ``"docker"``
 
 Specifies the programming language the code is written in.
 
@@ -566,6 +528,46 @@ ___
 #### type
 
 • **type**: [`Interface`](#interfacesinterfacemd)
+
+
+<a name="interfacesregistrymd"></a>
+
+[@edurata/types](#readmemd) / Registry
+
+## Interface: Registry
+
+If a registry is used, this is the schema for it. Currently only supported for runtime: "docker"
+
+**`Example`**
+
+```ts
+url: "docker.io/edurata", tag: "latest"
+```
+
+**`Example`**
+
+```ts
+url: "ghcr.io/edurata", tag: "latest"
+```
+
+### Table of contents
+
+#### Properties
+
+- [tag](#tag)
+- [url](#url)
+
+### Properties
+
+#### tag
+
+• **tag**: `string`
+
+___
+
+#### url
+
+• **url**: `string`
 
 
 <a name="interfacessourceimagerepomd"></a>
@@ -754,7 +756,6 @@ Schema for an educational function step.
 - [cache](#cache)
 - [dependencies](#dependencies)
 - [description](#description)
-- [if](#if)
 - [source](#source)
 
 ### Properties
@@ -786,14 +787,6 @@ ___
 • `Optional` **description**: `string`
 
 An additional description next to the key of the step.
-
-___
-
-#### if
-
-• `Optional` **if**: [`Condition`](#interfacesconditionmd)
-
-If defined, this step will only execute if the condition is true.
 
 ___
 
@@ -847,7 +840,6 @@ assuming the step "inputs" has an output "name" that is a complex object with a 
 - [outputId](#outputid)
 - [outputPath](#outputpath)
 - [stepId](#stepid)
-- [useAs](#useas)
 - [value](#value)
 
 ### Properties
@@ -893,26 +885,6 @@ ___
 the step which to depend on. Needs to be one defined in the "steps" attribute of the workflow
 definition. Can be "inputs" to refer to the global inputs of the workflow. Can be "each" if the
 attribute "foreach" in the parent step is defined.
-
-___
-
-#### useAs
-
-• `Optional` **useAs**: ``"ENV"`` \| ``"CMD_VALUE"`` \| ``"CMD_KEY_VALUE"`` \| ``"PARAMETER"``
-
-If the current step source of this dependency is a container image, this specifies whether to use the dependency as an environment variable or as a command line argument.
-
-**`Example`**
-
-```ts
-"ENV" -> the key of the dependency will be used as the name of the environment variable and the value as the value of the environment variable
-```
-
-**`Example`**
-
-```ts
-"CMD_VALUE" -> the value of the dependency will be used as the value of the command line argument like so "VALUE"
-```
 
 ___
 
@@ -979,7 +951,6 @@ assuming the step "inputs" has an output "name" that is a complex object with a 
 - [outputId](#outputid)
 - [outputPath](#outputpath)
 - [stepId](#stepid)
-- [useAs](#useas)
 - [value](#value)
 
 ### Properties
@@ -1041,30 +1012,6 @@ attribute "foreach" in the parent step is defined.
 ##### Inherited from
 
 [StepDependency](#interfacesstepdependencymd).[stepId](#stepid)
-
-___
-
-#### useAs
-
-• `Optional` **useAs**: ``"ENV"`` \| ``"CMD_VALUE"`` \| ``"CMD_KEY_VALUE"`` \| ``"PARAMETER"``
-
-If the current step source of this dependency is a container image, this specifies whether to use the dependency as an environment variable or as a command line argument.
-
-**`Example`**
-
-```ts
-"ENV" -> the key of the dependency will be used as the name of the environment variable and the value as the value of the environment variable
-```
-
-**`Example`**
-
-```ts
-"CMD_VALUE" -> the value of the dependency will be used as the value of the command line argument like so "VALUE"
-```
-
-##### Inherited from
-
-[StepDependency](#interfacesstepdependencymd).[useAs](#useas)
 
 ___
 

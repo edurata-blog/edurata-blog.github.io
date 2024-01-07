@@ -5,6 +5,8 @@ parent: Examples
 nav_order: 1
 ---
 
+![Alt Text](../../assets/ai-translator.png)
+
 # AI Translation bot
 
 This workflow is translating "memes" from a telegram channel and tweeting them to X. The image-to-text extraction is made by [pytesseract](https://pypi.org/project/pytesseract/) and the translation with [deepl](https://www.deepl.com/translator).
@@ -43,4 +45,10 @@ This workflow showcases all important features of the platform:
 ## Workflow
 
 - [definition](https://github.com/Edurata/edurata-workflows/blob/main/examples/ai-translator.eduwc.yaml)
--
+
+## Functions
+
+- [fetch-telegram](https://github.com/Edurata/edurata-functions/blob/main/etl/extract/fetch-telegram): This function is fetching the latest messages from a telegram channel. It is using the [telethon](https://pypi.org/project/Telethon/) library.
+- [extract-tesseract](https://github.com/Edurata/edurata-functions/blob/main/etl/extract/transform/extract-tesseract.edufc.yml): This function is extracting text from an image. It is using the [pytesseract](https://pypi.org/project/pytesseract/) library.
+- [translate-deepl](https://github.com/Edurata/edurata-functions/blob/main/etl/extract/translate-deepl): This function is translating text. It is using the [deepl](https://pypi.org/project/deepl/) library.
+- [tweet](https://github.com/Edurata/edurata-functions/blob/main/etl/load/tweet): This function is tweeting a message. It is using the [tweepy](https://pypi.org/project/tweepy/) library.

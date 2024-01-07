@@ -1,6 +1,7 @@
 ---
 layout: default
 title: AI Translation
+parent: Examples
 nav_order: 1
 ---
 

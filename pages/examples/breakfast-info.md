@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Breakfast Info
+parent: Examples
 nav_order: 1
 ---
 

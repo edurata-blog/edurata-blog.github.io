@@ -31,4 +31,8 @@ While **Functions define how** functionality is executed and what information th
 Learn more about [Functions](pages/functions/index.md) and
 [Workflows](pages/workflows/index.md)
 
+### Get Started
+
+For a quick start, you can use one of our [examples](pages/examples/index.md) or get started by creating your own workflow and deploy it.
+
 {:toc}

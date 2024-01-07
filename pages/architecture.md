@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Architecture & Security
-nav_order: 10
+nav_order: 9
 ---
 
 # Architecture

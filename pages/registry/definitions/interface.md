@@ -80,3 +80,39 @@ interface:
             description: Whether the error is an axios error
     required: [response]
 ```
+
+## Allowed types
+
+Types can be of the typical primitives:
+
+- **boolean**
+- **string**
+- **float**
+- **int**
+
+and the complex types:
+
+- **array**
+  - needs another key `items`
+- **object**
+  - needs another key `properties`
+
+and a few special types that configure how the value is used in the input / output
+
+- **file**
+  - expects a string which represents a filepath
+  - if a filepath is passed to this property as an output it will try to upload the file at that path and download if passed as an input. [See](../../workflows/artefacts.md)
+- **env**
+  - expects a string
+  - will be passed as environment variable
+- **cmdValue**
+  - expects a string
+  - needs to be an array of strings that is passed as cmd parameters
+- **cmdKeyValue**
+  - the key of the dependency and the value are passed in the pattern `--key=value`
+
+{: .warning}
+cmdValue expects an array
+
+{: .info}
+env, and cmdKeyValue are always strings, If any other type is passed, it will be automatically stringified.

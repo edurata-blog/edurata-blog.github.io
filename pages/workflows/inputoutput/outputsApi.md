@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Outputs Api
-parent: Workflows
-nav_order: 2
+parent: Input Output Processing
+grand_parent: Workflows
+nav_order: 3
 ---
 
 # Outputs / Callback

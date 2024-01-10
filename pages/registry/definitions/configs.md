@@ -185,7 +185,6 @@ The memory allocated. The available memory values depend on the amount of vCPUs 
 - [description](#description)
 - [interface](#interface)
 - [name](#name)
-- [resources](#resources)
 - [title](#title)
 
 ### Properties
@@ -222,14 +221,6 @@ An identifier that is unique in the registry. It is used as reference in deploym
 
 ___
 
-#### resources
-
-• `Optional` **resources**: [`ComputeResources`](#interfacescomputeresourcesmd)
-
-The compute resources to assign. The resources specified of function level will be overriden on workflow level.
-
-___
-
 #### title
 
 • `Optional` **title**: `string`
@@ -263,7 +254,6 @@ Represents the configuration schema for a function.
 - [interface](#interface)
 - [name](#name)
 - [registry](#registry)
-- [resources](#resources)
 - [runtime](#runtime)
 - [title](#title)
 
@@ -346,18 +336,6 @@ ___
 • `Optional` **registry**: [`Registry`](#interfacesregistrymd)
 
 If the source shouldn't be built but is already in an external registry, you can point to it here.
-
-___
-
-#### resources
-
-• `Optional` **resources**: [`ComputeResources`](#interfacescomputeresourcesmd)
-
-The compute resources to assign. The resources specified of function level will be overriden on workflow level.
-
-##### Inherited from
-
-[Config](#interfacesconfigmd).[resources](#resources)
 
 ___
 
@@ -1061,7 +1039,6 @@ Represents the configuration schema for a workflow.
 - [description](#description)
 - [interface](#interface)
 - [name](#name)
-- [resources](#resources)
 - [schedule](#schedule)
 - [steps](#steps)
 - [title](#title)
@@ -1113,18 +1090,6 @@ An identifier that is unique in the registry. It is used as reference in deploym
 ##### Inherited from
 
 [Config](#interfacesconfigmd).[name](#name)
-
-___
-
-#### resources
-
-• `Optional` **resources**: [`ComputeResources`](#interfacescomputeresourcesmd)
-
-The compute resources to assign. The resources specified of function level will be overriden on workflow level.
-
-##### Inherited from
-
-[Config](#interfacesconfigmd).[resources](#resources)
 
 ___
 

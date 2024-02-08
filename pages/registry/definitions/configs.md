@@ -341,7 +341,7 @@ ___
 
 #### runtime
 
-• `Optional` **runtime**: ``"nodejs16"`` \| ``"nodejs18"`` \| ``"nodejs20"`` \| ``"python3_7"`` \| ``"python3_8"`` \| ``"docker"``
+• `Optional` **runtime**: ``"nodejs20"`` \| ``"python3_10"`` \| ``"docker"``
 
 Specifies the programming language the code is written in.
 

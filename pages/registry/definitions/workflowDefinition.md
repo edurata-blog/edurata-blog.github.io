@@ -11,31 +11,28 @@ nav_order: 2
 In order to register a workflow into the registry you need to write a config that defines the workflow fully.
 
 ```yaml
-apiVersion: "0.0.1"
-title: convert String
-description: Converts any of the supported formats of strings
-action: MAP
-multiple: true # multiple records can be processed in parallel
-interfaces:
-  global:
-    - name: inputStringFormat
-      required: true
-      description: The Format of the string(s) to be converted
-      enum:
-        - utf8
-        - hex
-        - base64
-    - name: outputStringFormat
-      description: The Format of the resulting string(s)
-      required: true
-      enum:
-        - utf8
-        - hex
-        - base64
-  input:
-    resourceId: charset
-    multiple: true
-  output:
-    resourceId: charset
-    multiple: true
+apiRevision: edurata.io/v1
+name: foo-workflow
+description: |
+  Test workflow to show how to define a workflow.
+interface: ...
+steps:
+  step1:
+    source:
+      # Source by registry
+      name: foo-function
+      revision: 12
+    dependencies:
+      dep1: ${inputs.input1} # This is passing the input "input1" to the input dep1 on step1
+      dep2: ${variables.var1} # This is passing the variable "var1" to dep2
+      dep3: ${secrets.secret1} # This is passing a secret of "secret1" to dep3
+  step2:
+    source:
+      # Source by git
+      repoUrl: https://github.com/Edurata/edurata-functions.git
+      path: general/axios
+      ref: main
+    dependencies:
+      dep1: ${step1.output1} # This is passing the output "output1" of step1 to the input dep1 on step2
+      dep2: example of interpolation ${step1.output2} ! # This is passing a string with interpolation to dep2
 ```

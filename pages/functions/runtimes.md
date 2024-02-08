@@ -7,12 +7,8 @@ nav_order: 2
 
 # Runtimes
 
-Three runtimes are at the moment supported: Python (3.8 and 3.7), Nodejs (16, 18 & 20) and Docker.
+Three runtimes are at the moment supported: Python (v3.10), Nodejs (v20) and Docker.
 
-For both nodejs and python a minimal coding
+For both nodejs and python only the basic runtime environment is provided. This means that the functions are running in a container with the runtime environment and the function code. The function code is then executed in the runtime environment.
 
-## Python
-
-## Nodejs
-
-## Docker
+If you need additional packages or libraries, you can add them using the package management files described in the [dependencies section](dependencies.md).

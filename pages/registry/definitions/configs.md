@@ -734,6 +734,7 @@ Schema for an educational function step.
 - [cache](#cache)
 - [dependencies](#dependencies)
 - [description](#description)
+- [foreach](#foreach)
 - [source](#source)
 
 ### Properties
@@ -765,6 +766,15 @@ ___
 • `Optional` **description**: `string`
 
 An additional description next to the key of the step.
+
+___
+
+#### foreach
+
+• `Optional` **foreach**: \`$\{string}.$\{string}.$\{string}\` \| [`StepDependency`](#interfacesstepdependencymd)
+
+If defined and the dependency is of type array, this step will loop over the array. The dependencies
+attribute can then use "each" as StepDependencySchema.stepId, pointing to each iteration.
 
 ___
 

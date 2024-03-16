@@ -12,6 +12,7 @@ grand_parent: Registry
     - [Interfaces](#interfaces)
     - [Type Aliases](#type-aliases)
   - [Type Aliases](#type-aliases-1)
+    - [Step](#step)
     - [StepDependencyString](#stepdependencystring)
 - [Interfaces](#interfaces-1)
   - [Interface: ComputeResources](#interface-computeresources)
@@ -43,21 +44,18 @@ grand_parent: Registry
   - [Interface: SourceRepo](#interface-sourcerepo)
     - [Table of contents](#table-of-contents-9)
     - [Properties](#properties-8)
-  - [Interface: Step](#interface-step)
-    - [Table of contents](#table-of-contents-10)
-    - [Properties](#properties-9)
   - [Interface: StepDependency](#interface-stepdependency)
     - [Hierarchy](#hierarchy-2)
-    - [Table of contents](#table-of-contents-11)
-    - [Properties](#properties-10)
+    - [Table of contents](#table-of-contents-10)
+    - [Properties](#properties-9)
   - [Interface: StepDependencyUseAs](#interface-stepdependencyuseas)
     - [Hierarchy](#hierarchy-3)
-    - [Table of contents](#table-of-contents-12)
-    - [Properties](#properties-11)
+    - [Table of contents](#table-of-contents-11)
+    - [Properties](#properties-10)
   - [Interface: WorkflowConfig](#interface-workflowconfig)
     - [Hierarchy](#hierarchy-4)
-    - [Table of contents](#table-of-contents-13)
-    - [Properties](#properties-12)
+    - [Table of contents](#table-of-contents-12)
+    - [Properties](#properties-11)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -81,16 +79,24 @@ grand_parent: Registry
 - [SourceImageRepo](#interfacessourceimagerepomd)
 - [SourceRegistry](#interfacessourceregistrymd)
 - [SourceRepo](#interfacessourcerepomd)
-- [Step](#interfacesstepmd)
 - [StepDependency](#interfacesstepdependencymd)
 - [StepDependencyUseAs](#interfacesstepdependencyuseasmd)
 - [WorkflowConfig](#interfacesworkflowconfigmd)
 
 ### Type Aliases
 
+- [Step](#step)
 - [StepDependencyString](#stepdependencystring)
 
 ## Type Aliases
+
+### Step
+
+Ƭ **Step**: \{ `dependencies?`: \{ `[key: string]`: [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring);  } ; `description?`: `string` ; `foreach?`: [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring) ; `source?`: `Source`  } & [`WorkflowConfig`](#interfacesworkflowconfigmd) \| [`FunctionConfig`](#interfacesfunctionconfigmd)
+
+Schema for an educational function step.
+
+___
 
 ### StepDependencyString
 
@@ -191,7 +197,7 @@ The memory allocated. The available memory values depend on the amount of vCPUs 
 
 #### apiRevision
 
-• **apiRevision**: ``"edurata.io/v1"``
+• `Optional` **apiRevision**: ``"edurata.io/v1"``
 
 Refers to the version of this schema and should be updated whenever the schema changes
 
@@ -215,7 +221,7 @@ ___
 
 #### name
 
-• **name**: `string`
+• `Optional` **name**: `string`
 
 An identifier that is unique in the registry. It is used as reference in deployments or workflows.
 
@@ -247,6 +253,7 @@ Represents the configuration schema for a function.
 #### Properties
 
 - [apiRevision](#apirevision)
+- [code](#code)
 - [description](#description)
 - [entrypoint](#entrypoint)
 - [exclude](#exclude)
@@ -261,13 +268,21 @@ Represents the configuration schema for a function.
 
 #### apiRevision
 
-• **apiRevision**: ``"edurata.io/v1"``
+• `Optional` **apiRevision**: ``"edurata.io/v1"``
 
 Refers to the version of this schema and should be updated whenever the schema changes
 
 ##### Inherited from
 
 [Config](#interfacesconfigmd).[apiRevision](#apirevision)
+
+___
+
+#### code
+
+• `Optional` **code**: `string`
+
+Inline code. You don't need to put the handler function and can write the content of the function directly
 
 ___
 
@@ -321,7 +336,7 @@ ___
 
 #### name
 
-• **name**: `string`
+• `Optional` **name**: `string`
 
 An identifier that is unique in the registry. It is used as reference in deployments or workflows.
 
@@ -719,72 +734,6 @@ the url of the git repository
 ```
 
 
-<a name="interfacesstepmd"></a>
-
-[@edurata/types](#readmemd) / Step
-
-## Interface: Step
-
-Schema for an educational function step.
-
-### Table of contents
-
-#### Properties
-
-- [cache](#cache)
-- [dependencies](#dependencies)
-- [description](#description)
-- [foreach](#foreach)
-- [source](#source)
-
-### Properties
-
-#### cache
-
-• `Optional` **cache**: `boolean`
-
-If enabled, the task has access to a user-scoped shared filesystem at /tmp.
-
-___
-
-#### dependencies
-
-• `Optional` **dependencies**: `Object`
-
-Specifies where to get the input data (from other steps or the global inputs of the workflow defined in
-the "interface" attribute at the top). Each key must be an input of this step and should be defined in
-FunctionSchema.interface.inputs of the function defined in "source".
-
-##### Index signature
-
-▪ [key: `string`]: [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring)
-
-___
-
-#### description
-
-• `Optional` **description**: `string`
-
-An additional description next to the key of the step.
-
-___
-
-#### foreach
-
-• `Optional` **foreach**: \`$\{string}.$\{string}.$\{string}\` \| [`StepDependency`](#interfacesstepdependencymd)
-
-If defined and the dependency is of type array, this step will loop over the array. The dependencies
-attribute can then use "each" as StepDependencySchema.stepId, pointing to each iteration.
-
-___
-
-#### source
-
-• `Optional` **source**: `Source`
-
-Specifies the source from which to obtain the code to execute in this step.
-
-
 <a name="interfacesstepdependencymd"></a>
 
 [@edurata/types](#readmemd) / StepDependency
@@ -1057,7 +1006,7 @@ Represents the configuration schema for a workflow.
 
 #### apiRevision
 
-• **apiRevision**: ``"edurata.io/v1"``
+• `Optional` **apiRevision**: ``"edurata.io/v1"``
 
 Refers to the version of this schema and should be updated whenever the schema changes
 
@@ -1093,7 +1042,7 @@ ___
 
 #### name
 
-• **name**: `string`
+• `Optional` **name**: `string`
 
 An identifier that is unique in the registry. It is used as reference in deployments or workflows.
 
@@ -1105,7 +1054,7 @@ ___
 
 #### schedule
 
-• **schedule**: `string`
+• `Optional` **schedule**: `string`
 
 A cron schedule that determines when the workflow should be executed.
 
@@ -1150,7 +1099,7 @@ The order of execution and dataflow is inferred by "dependencies".
 
 ##### Index signature
 
-▪ [key: `string`]: [`Step`](#interfacesstepmd)
+▪ [key: `string`]: [`Step`](#step)
 
 ___
 
